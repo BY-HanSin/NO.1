@@ -1,0 +1,73 @@
+/**
+ * @authar HanSin
+ * @date 2021/4/15 8:15
+ */
+import java.util.Scanner;
+
+public class qiangpo {
+
+	static String s;
+	static Scanner sc = new Scanner(System.in);
+	static String role[] = {"匿名","米哈游狗策划","百里守约","菠菜人"};
+	public static void main(String[] args) {
+		init();
+		finger();
+	}
+	public static void init() {
+		System.out.println("-----------------欢迎进入猜拳-------------------"+"\n"+"\n");
+		System.out.println("\t\t"+"*******************");
+		System.out.println("\t\t"+"**    猜拳开始    **");
+		System.out.println("\t\t"+"*******************"+"\n");
+	}
+	public static void finger() {
+		int count = 0;//统计猜拳盘数
+		int integral[] = new int[3];
+		System.out.println("出拳规则：1、剪刀  2、石头  3、布"+"\n");
+		System.out.print("请为自己选择角色（1：米哈游狗策划 2：百里守约 3、菠菜人）：");
+		int a1 = sc.nextInt();
+		System.out.println("我选择的角色是："+role[a1]);
+		int a2 = (int)(Math.random()*(4-1)+1);
+		System.out.println("计算机随机选择的角色是："+role[a2]+"\n"+"\n");
+		System.out.print("要开始吗？（y/n）");
+		s = sc.next();
+//		System.out.println(s == "y");
+		while(s.equals("y")) {
+			System.out.println("请出拳：1.剪刀 2.石头 3.布（输入相应数字）：");
+			int n1 = sc.nextInt();
+			String S[] = {"还没出呢","剪刀","石头","布"};
+			System.out.println("你出拳："+S[n1]);
+			int n2 = (int)(Math.random()*(4-1)+1);
+			System.out.println("电脑出拳："+S[n2]);
+			if(n1 == n2) {
+				System.out.println("结果：和局，你真是个孙子");
+			}else if(n1==1) {
+				if(n2==2) {System.out.println("结果（机器）："+role[a1]+"你输了，傻逼!"); integral[2]++;}
+				if(n2==3) {System.out.println("结果（机器）："+role[a1]+"你赢了，儿子!"); integral[1]++;}
+			}else if(n1==2) {
+				if(n2==1) {System.out.println("结果（机器）："+role[a1]+"你赢了，儿子!"); integral[1]++;}
+				if(n2==3) {System.out.println("结果（机器）："+role[a1]+"你输了，傻逼!"); integral[2]++;}
+			}else if(n1==3) {
+				if(n2==1) {System.out.println("结果（机器）："+role[a1]+"你输了，傻逼!"); integral[2]++;}
+				if(n2==2) {System.out.println("结果（机器）："+role[a1]+"你赢了，儿子!"); integral[1]++;}
+			}
+			System.out.println("是否开始下一轮（y/n）：");
+			s = sc.next();
+			++count;
+		}
+		System.out.println("-------------------------------------------------------------------");
+		System.out.println("（机器）"+role[a2]+" VS "+"(人)"+role[a1]);
+		System.out.println("对战次数："+count);
+		System.out.println("积分结果：");
+		System.out.println("（真人）"+role[a1]+"："+integral[1]+"分");
+		System.out.println("（机器）"+role[a2]+"："+integral[2]+"分");
+		if(integral[1]>integral[2]) {
+			System.out.println("最终结果：（真人）"+role[a1]+"获胜");
+		}
+		if(integral[1]<integral[2]) {
+			System.out.println("最终结果：（机器）"+role[a2]+"获胜");
+		}else {
+			System.out.println("最终结果：平局");
+		}
+	}
+}
+
