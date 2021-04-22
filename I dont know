@@ -1,0 +1,65 @@
+package anj;
+
+/**
+ * @authar HanSin
+ * @date 2021/4/20 16:54
+ */
+public class l2 {
+	public static void main(String[] args) {
+		l1 iphoneSE3 = new l1();
+		iphoneSE3.width = 25;
+		iphoneSE3.high = 55;
+		iphoneSE3.weight = 155;
+		iphoneSE3.color = "玫瑰金";
+
+//构造方法
+		l1 onePlus = new l1(26,56,156,"琥珀蓝");
+		l1 onePlus1 = new l1(26,56,156,"琥珀蓝");
+
+		System.out.println(iphoneSE3);
+		System.out.println(onePlus);
+
+		System.out.println(onePlus == onePlus1);
+		System.out.println(onePlus);
+	}
+}
+
+/*作用：帮助开辟内存空间，创造对象
+
+特征：1.没有返回值
+2.名字要求和类名完全一致，大小写敏感
+3.分为有参和无参构造方法
+3-1.无参构造方法不管是否书写，都会存在
+3-2.有参构造方法需要手动编写，参数个数可以自定义
+
+方法的重载
+1.在同一个类中
+2.方法的名字相同
+3.参数不同
+3-1.参数的个数不同
+3-2.参数的类型不同
+3-3.参数类型的顺序不同
+
+toString
+
+public String toString(){
+	return "{"+this.weight +" "+ this.high +" "+this.width+" "+this.color+"}";
+
+作用：把对象按照人能够理解的方式重写
+
+this
+表示当权对象（谁调用当前方法，this指代的就是谁）
+public l1(double kuan , double gao ,int zhongliang ,String yanse){
+		width = kuan;
+		high = gao;
+		weight = zhongliang;
+		color = yanse;
+
+Object类是所有类的父类
+但凡有其他的类被创建，Object一定会被创建
+Object类中有一些固定的方法，其他所有类钟都有这些方法
+即便没写依旧存在
+
+
+
+ */
